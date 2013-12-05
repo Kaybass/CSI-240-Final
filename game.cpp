@@ -26,7 +26,7 @@ OnePlayerGame::~OnePlayerGame()
 	delete mLogger;
 }
 
-void OnePlayerGame::runGame()
+int OnePlayerGame::runGame()
 {
 	system("cls");
 
@@ -60,6 +60,12 @@ void OnePlayerGame::runGame()
 			else
 				currentdirection = 0;
 		}
+		else if(GetAsyncKeyState(VK_ESCAPE) != 0)
+		{
+			delete pFood;
+			delete pSnake;
+			return 1;
+		}
 		pSnake->update(currentdirection);
 		pFood->draw();
 		Sleep(100);
@@ -84,4 +90,5 @@ void OnePlayerGame::runGame()
 
 	delete pFood;
 	delete pSnake;
+	return 0;
 }

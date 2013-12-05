@@ -4,7 +4,10 @@ int main()
 {
 	Game * pGame = new OnePlayerGame("TheLog.txt");
 
-	pGame->runGame();
-
+	int i = 0;
+	while(i != 1)
+	{
+		i = pGame->runGame();
+	}
 	delete pGame;
 }

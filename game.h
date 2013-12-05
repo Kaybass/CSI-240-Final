@@ -8,7 +8,7 @@ public:
 	Game(const std::string logfile);
 	~Game();
 
-	virtual void runGame() = 0;
+	virtual int runGame() = 0;
 protected:
 	logger * mLogger;
 };
@@ -19,5 +19,5 @@ public:
 	OnePlayerGame(const std::string logfile);
 	~OnePlayerGame();
 
-	virtual void runGame();
+	virtual int runGame();
 };
