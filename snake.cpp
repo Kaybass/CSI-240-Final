@@ -159,32 +159,32 @@ void PlayerSnake::update(int direction)
 			{
 				switch(lastDirection)
 				{
-				case 3: //west
-					pCur->item.setDirection(3);
+				case WEST: //west
+					pCur->item.setDirection(WEST);
 					pCur->item.update(pCur->item.getX() - 1,pCur->item.getY());
 					pCur->item.draw();
 					pCur = pCur->pNextNode;
 					lastDirection = currentDirection;
 					currentDirection = pCur->item.getDirection();
 					break;
-				case 1: //east
-					pCur->item.setDirection(1);
+				case EAST: //east
+					pCur->item.setDirection(EAST);
 					pCur->item.update(pCur->item.getX() + 1,pCur->item.getY());
 					pCur->item.draw();
 					pCur = pCur->pNextNode;
 					lastDirection = currentDirection;
 					currentDirection = pCur->item.getDirection();
 					break;
-				case 2: //south
-					pCur->item.setDirection(2);
+				case SOUTH: //south
+					pCur->item.setDirection(SOUTH);
 					pCur->item.update(pCur->item.getX(),pCur->item.getY() + 1);
 					pCur->item.draw();
 					pCur = pCur->pNextNode;
 					lastDirection = currentDirection;
 					currentDirection = pCur->item.getDirection();
 					break;
-				case 0: //north
-					pCur->item.setDirection(0);
+				case NORTH: //north
+					pCur->item.setDirection(NORTH);
 					pCur->item.update(pCur->item.getX(),pCur->item.getY() - 1);
 					pCur->item.draw();
 					pCur = pCur->pNextNode;
@@ -197,23 +197,23 @@ void PlayerSnake::update(int direction)
 			}
 			switch(lastDirection)
 			{
-			case 3: //west
-				pCur->item.setDirection(3);
+			case WEST: //west
+				pCur->item.setDirection(WEST);
 				pCur->item.update(pCur->item.getX() - 1,pCur->item.getY());
 				pCur->item.draw();
 				break;
-			case 1: //east
-				pCur->item.setDirection(1);
+			case EAST: //east
+				pCur->item.setDirection(EAST);
 				pCur->item.update(pCur->item.getX() + 1,pCur->item.getY());
 				pCur->item.draw();
 				break;
-			case 2: //south
-				pCur->item.setDirection(2);
+			case SOUTH: //south
+				pCur->item.setDirection(SOUTH);
 				pCur->item.update(pCur->item.getX(),pCur->item.getY() + 1);
 				pCur->item.draw();
 				break;
-			case 0: //north
-				pCur->item.setDirection(0);
+			case NORTH: //north
+				pCur->item.setDirection(NORTH);
 				pCur->item.update(pCur->item.getX(),pCur->item.getY() - 1);
 				pCur->item.draw();
 				break;
@@ -225,23 +225,23 @@ void PlayerSnake::update(int direction)
 		{
 			switch(direction)
 			{
-			case 3:
-				mpHead->item.setDirection(0);
+			case WEST:
+				mpHead->item.setDirection(WEST);
 				mpHead->item.update(mpHead->item.getX() - 1,mpHead->item.getY());
 				mpHead->item.draw();
 				break;
-			case 1:
-				mpHead->item.setDirection(1);
+			case EAST:
+				mpHead->item.setDirection(EAST);
 				mpHead->item.update(mpHead->item.getX() + 1,mpHead->item.getY());
 				mpHead->item.draw();
 				break;
-			case 2:
-				mpHead->item.setDirection(2);
+			case SOUTH:
+				mpHead->item.setDirection(SOUTH);
 				mpHead->item.update(mpHead->item.getX(),mpHead->item.getY() + 1);
 				mpHead->item.draw();
 				break;
-			case 0:
-				mpHead->item.setDirection(3);
+			case NORTH:
+				mpHead->item.setDirection(NORTH);
 				mpHead->item.update(mpHead->item.getX(),mpHead->item.getY() - 1);
 				mpHead->item.draw();
 				break;
@@ -256,16 +256,16 @@ void PlayerSnake::addFood(const Food* thefood)
 {
 	switch(mpHead->item.getDirection())
 	{
-	case 0:
+	case NORTH:
 		addHead(mpHead->item.getX(),mpHead->item.getY() - 1,mpHead->item.getDirection());
 		break;
-	case 1:
+	case EAST:
 		addHead(mpHead->item.getX() + 1,mpHead->item.getY(),mpHead->item.getDirection());
 		break;
-	case 2:
+	case SOUTH:
 		addHead(mpHead->item.getX(),mpHead->item.getY() + 1,mpHead->item.getDirection());
 		break;
-	case 3:
+	case WEST:
 		addHead(mpHead->item.getX() - 1,mpHead->item.getY(),mpHead->item.getDirection());
 		break;
 	default:
